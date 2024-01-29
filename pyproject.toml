@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "mnovikov"
+version = "0.1.0"
+description = ""
+authors = ["Nurs <jackmovies01@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.109.0"
+uvicorn = "^0.27.0"
+pydantic = {extras = ["dotenv", "email"], version = "^2.5.3"}
+orjson = "^3.9.12"
+celery = "^5.3.6"
+httpx = "^0.26.0"
+locust = "^2.21.0"
+redis = "^5.0.1"
+pydantic-settings = "^2.1.0"
+flower = "^2.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
