@@ -5,11 +5,7 @@
 ### Clone the repository:
 
 ```shell
-git clone git@gitlab.com:noors312/eventhub.git
-```
-or
-```shell
-git clone https://gitlab.com/noors312/eventhub.git
+git clone https://github.com/noors113/mnovikot_test.git
 ```
 
 ### Copy env file
