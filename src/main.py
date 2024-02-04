@@ -1,14 +1,13 @@
 from fastapi import FastAPI
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import ORJSONResponse
-from src.core.config import settings
 from starlette.middleware.cors import CORSMiddleware
 
 from src.api.errors.http_error import common_error_handler
 from src.api.errors.validation_error import http422_error_handler
 from src.api.routes import router as api_router
+from src.core.config import settings
 from src.core.exceptions import CommonErrorException
-
 
 # if settings.SENTRY_DSN:
 #     sentry_sdk.init(
@@ -37,12 +36,8 @@ def get_application() -> FastAPI:
         allow_headers=["*"],
     )
 
-    application.add_exception_handler(
-        CommonErrorException, common_error_handler
-    )
-    application.add_exception_handler(
-        RequestValidationError, http422_error_handler
-    )
+    application.add_exception_handler(CommonErrorException, common_error_handler)
+    application.add_exception_handler(RequestValidationError, http422_error_handler)
 
     application.include_router(
         api_router,

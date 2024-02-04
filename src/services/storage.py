@@ -7,7 +7,8 @@ from src.db.database import kv_session
 
 
 class StoragePool:
-    storage = kv_session
+    def __init__(self):
+        self.storage = kv_session
 
     async def insert(
         self, key: str, payload: Any, seconds_ttl: int | None = None
