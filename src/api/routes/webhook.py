@@ -56,7 +56,7 @@ async def process_viber_webhook(
                 signature, {"status": "waiting", "celery_id": celery_id}
             )
             task_send_event.apply_async(
-                kwargs={"data": payload.model_dump(), "celery_id": celery_id}, coundown=0
+                kwargs={"data": payload.model_dump_json(), "celery_id": celery_id}, coundown=0
             )
             return ORJSONResponse(
                 content={"message": "Task started processing"},

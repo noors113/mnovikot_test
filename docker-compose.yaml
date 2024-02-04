@@ -24,6 +24,7 @@ services:
       - cache-volume:/data
     expose:
       - "6379"
+
   celery:
     build: .
     command: celery -A src.worker.celery worker --loglevel=info
@@ -33,6 +34,7 @@ services:
       - .env
     depends_on:
       - redis
+
   dashboard:
     build: .
     command: celery --broker=redis://redis:6379/1 flower --port=5555
